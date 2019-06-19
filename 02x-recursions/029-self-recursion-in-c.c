@@ -1,4 +1,4 @@
-// C89
+/* C89 */
 
 #include <stdio.h>
 
