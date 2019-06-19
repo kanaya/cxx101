@@ -1,5 +1,3 @@
-// C++11
-
 #include <cstdio>
 
 int main() {
@@ -14,8 +12,8 @@ int main() {
 		"080\n081\n082\n083\n084\n085\n086\n087\n088\n089\n"
 		"090\n091\n092\n093\n094\n095\n096\n097\n098\n099\n"
 		"100\n";
-	for (int c: zero_to_hundred) {
-		std::fputc(c, stdout);
+	for (int i = 0; i < sizeof(zero_to_hundred) - 1; ++i) {
+		std::fputc(zero_to_hundred[i], stdout);
 	}
 	std::fflush(stdout);
 	return 0;
