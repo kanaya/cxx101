@@ -48,10 +48,10 @@ int main() {
 		};
 	};
 	std::function<void(std::shared_ptr<linklist<int>>)> print_all
-		= Y([](auto print_all, std::shared_ptr<linklist<int>> s) -> void {
+		= Y([](auto printer, std::shared_ptr<linklist<int>> s) -> void {
 			if (s != nullptr) {
 				std::cout << std::setw(3) << std::setfill('0') << s->value << '\n';
-				print_all(print_all, s->next);
+				printer(printer, s->next);
 			}			
 		});
 	print_all(list);
