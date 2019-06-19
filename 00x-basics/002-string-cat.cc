@@ -21,6 +21,6 @@ int main() {
 		"085\n" "086\n" "087\n" "088\n" "089\n";
 	std::cout << "090\n" "091\n" "092\n" "093\n" "094\n"
 		"095\n" "096\n" "097\n" "098\n" "099\n";
-	std::cout << "100" << std::endl;
+	std::cout << "100\n" << std::flush;
 	return 0;
 }

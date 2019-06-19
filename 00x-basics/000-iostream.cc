@@ -111,7 +111,7 @@ int main() {
 	std::cout << "098\n";
 	std::cout << "099\n";
 
-	std::cout << "100";
-	std::cout << std::endl;
+	std::cout << "100\n";
+	std::cout << std::flush;
 	return 0;
 }

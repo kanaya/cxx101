@@ -61,6 +61,6 @@ int main() {
 		<< "096\n" << "097\n" << "098\n" 
 		<< "099\n";
 
-	std::cout << "100" << std::endl;
+	std::cout << "100\n" << std::flush;
 	return 0;
 }
