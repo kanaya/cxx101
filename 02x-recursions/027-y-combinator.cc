@@ -47,13 +47,12 @@ int main() {
 			return f(f, args...);
 		};
 	};
-	std::function<void(std::shared_ptr<linklist<int>>)> print_all
-		= Y([](auto printer, std::shared_ptr<linklist<int>> s) -> void {
-			if (s != nullptr) {
-				std::cout << std::setw(3) << std::setfill('0') << s->value << '\n';
-				printer(printer, s->next);
-			}			
-		});
+	auto print_all = Y([](auto printer, std::shared_ptr<linklist<int>> s) -> void {
+		if (s != nullptr) {
+			std::cout << std::setw(3) << std::setfill('0') << s->value << '\n';
+			printer(printer, s->next);
+		}			
+	});
 	print_all(list);
 	std::cout << std::flush;
 	return 0;
