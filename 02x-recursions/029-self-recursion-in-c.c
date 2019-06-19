@@ -8,5 +8,6 @@ int main(int argc, const char *const *argv) {
 		main(argc + 1, NULL);
 		/* You may not recursively call main function in C++. */
 	}
+	fflush(stdout);
 	return 0;
 }
