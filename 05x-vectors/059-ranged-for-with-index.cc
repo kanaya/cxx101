@@ -1,6 +1,5 @@
-// C++14
+// C++17
 
-#include <algorithm>
 #include <vector>
 #include "../fxstream.h"
 
