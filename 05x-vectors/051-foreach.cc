@@ -12,9 +12,9 @@ int main() {
 	for (int i = 0; i < N; ++i) {
 		a.push_back(i);
 	}
-	for (auto i = a.cbegin(); i != a.cend(); ++i) {
-		std::cout << std::setw(3) << std::setfill('0') << *i << '\n';
-	}
+	std::for_each(a.cbegin(), a.cend(), [](auto i){
+		std::cout << std::setw(3) << std::setfill('0') << i << '\n';
+	});
 	std::cout << std::flush;
 	return 0;
 }
