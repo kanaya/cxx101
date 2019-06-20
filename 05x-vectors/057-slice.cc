@@ -4,18 +4,18 @@
 #include <iomanip>
 #include <algorithm>
 #include <valarray>
+#include <numeric>
 
 constexpr int N = 101;
 
 int main() {
 	std::valarray<int> a(N * 3);
-	for (int i = 0; i < N * 3; ++i) {
-		a[i] = i;
-	}
+	std::iota(std::begin(a), std::end(a), 1);
 	auto b = a[std::slice(0, N, 3)];
-	std::for_each(&b[0], &b[N], [](auto i) {
-		std::cout << std::setw(3) << std::setfill('0') << i << '\n';
-	});
+	auto c = std::valarray<int>(b);
+	for (auto i: c) {
+		std::cout << std::setw(3) << std::setfill('0') << i / 3 << '\n';
+	}
 	std::cout << std::flush;
 	return 0;
 }
