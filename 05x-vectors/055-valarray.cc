@@ -1,20 +1,15 @@
-// C++14
-
-#include <iostream>
-#include <iomanip>
 #include <algorithm>
 #include <valarray>
-
-constexpr int N = 101;
+#include "print_int.h"
 
 int main() {
+	constexpr std::size_t N = 101;
 	std::valarray<int> a(N);
-	for (int i = 0; i < N; ++i) {
-		a[i] = i;
+
+	for (std::size_t i = 0; i < N; ++i) {
+		a[i] = static_cast<int>(i);
 	}
-	std::for_each(&a[0], &a[N], [](auto i) {
-		std::cout << std::setw(3) << std::setfill('0') << i << '\n';
-	});
+	std::for_each(&a[0], &a[N], [](auto i){ print_integer(std::cout, i); });
 	std::cout << std::flush;
 	return 0;
 }

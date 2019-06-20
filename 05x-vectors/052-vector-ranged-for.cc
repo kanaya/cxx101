@@ -1,19 +1,15 @@
-// C++11
-
-#include <iostream>
-#include <iomanip>
-#include <algorithm>
 #include <vector>
-
-constexpr int N = 101;
+#include "print_int.h"
 
 int main() {
+	constexpr std::size_t N = 101;
 	std::vector<int> a(N);
+
 	for (int i = 0; i < N; ++i) {
 		a.push_back(i);
 	}
 	for (auto i: a) {
-		std::cout << std::setw(3) << std::setfill('0') << i << '\n';
+		print_integer(std::cout, i);
 	}
 	std::cout << std::flush;
 	return 0;

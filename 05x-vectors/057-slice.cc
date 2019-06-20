@@ -1,10 +1,8 @@
 // C++14
 
-#include <iostream>
-#include <iomanip>
-#include <algorithm>
-#include <valarray>
 #include <numeric>
+#include <valarray>
+#include "../fxstream.h"
 
 constexpr int N = 101;
 
@@ -14,7 +12,7 @@ int main() {
 	auto b = a[std::slice(0, N, 3)];
 	auto c = std::valarray<int>(b);
 	for (auto i: c) {
-		std::cout << std::setw(3) << std::setfill('0') << i / 3 << '\n';
+		print_integer(std::cout, i);
 	}
 	std::cout << std::flush;
 	return 0;
