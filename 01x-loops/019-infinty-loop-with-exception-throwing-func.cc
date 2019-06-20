@@ -1,20 +1,20 @@
-// C++11
-
-#include <iostream>
+#include <exception>
 #include <iomanip>
+#include <iostream>
 
-void print_n(int n, std::ostream &os) throw (std::exception) {
+template <typename T>
+std::ostream &print_integer(std::ostream &s, int n) throw (std::exception) {
 	if (n > 100) {
 		throw std::exception {};
 	}
-	os << std::setw(3) << std::setfill('0') << n << '\n';
+	return s << std::setw(3) << std::setfill('0') << n << std::endl;
 }
 
 int main() {
 	int i = 0;
 	try {
 		while (true) {
-			print_n(i, std::cout);
+			print_integer(std::cout, i);
 			++i;
 		}
 	}

@@ -1,11 +1,10 @@
-#include <iostream>
-#include <iomanip>
 #include <cstdlib>
+#include "../fxstream.h"
 
 int main() {
 	int i = 0;
 	while (true) {
-		std::cout << std::setw(3) << std::setfill('0') << i << '\n';
+		print_integer(std::cout, i);
 		if (++i > 100) {
 			std::cout << std::flush;
 			std::exit(0);

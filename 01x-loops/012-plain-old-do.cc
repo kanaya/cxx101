@@ -1,10 +1,9 @@
-#include <iostream>
-#include <iomanip>
+#include "../fxstream.h"
 
 int main() {
 	int i = 0;
 	do {
-		std::cout << std::setw(3) << std::setfill('0') << i << '\n';
+		print_integer(std::cout, i);
 		++i;
 	} 
 	while (i <= 100);
