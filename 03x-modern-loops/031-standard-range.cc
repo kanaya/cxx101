@@ -3,8 +3,6 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
-#include <utility>
-#include <initializer_list>
 
 template <typename T> auto range(T begin, T end) {
 	auto a = std::vector<size_t>(end - begin);
