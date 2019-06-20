@@ -1,4 +1,4 @@
-#include "../fxstream.h"
+#include "print_int.h"
 
 int main() {
 	int i = 0;

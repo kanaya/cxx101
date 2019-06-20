@@ -1,13 +1,12 @@
 #include <exception>
-#include <iomanip>
-#include <iostream>
+#include "print_int.h"
 
 template <typename T>
-std::ostream &print_integer(std::ostream &s, int n) throw (std::exception) {
+std::ostream &print_integer(std::ostream &s, int n) noexcept(false) {
 	if (n > 100) {
 		throw std::exception {};
 	}
-	return s << std::setw(3) << std::setfill('0') << n << std::endl;
+	return print_integer(s, n);
 }
 
 int main() {

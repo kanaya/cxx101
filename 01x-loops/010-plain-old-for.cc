@@ -1,4 +1,4 @@
-#include "../fxstream.h"
+#include "print_int.h"
 
 int main() {
 	for (int i = 0; i <= 100; ++i) {
