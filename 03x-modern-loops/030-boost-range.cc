@@ -1,12 +1,11 @@
-// C++11 + Boost
+// Boost
 
-#include <iostream>
-#include <iomanip>
 #include <boost/range/irange.hpp>
+#include "print_int.h"
 
 int main() {
 	for (auto i: boost::irange(0, 101)) {
-		std::cout << std::setw(3) << std::setfill('0') << i << '\n';
+		print_integer(std::cout, i);
 	}
 	std::cout << std::flush;
 	return 0;
