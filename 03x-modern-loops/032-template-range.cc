@@ -20,3 +20,6 @@ int main() {
 	std::cout << std::flush;
 	return 0;
 }
+
+// The idea of using std::make_index_sequence is inspired by JLBorges
+// http://www.cplusplus.com/forum/general/203861/
