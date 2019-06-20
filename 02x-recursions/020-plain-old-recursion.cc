@@ -1,15 +1,17 @@
-#include <iostream>
-#include <iomanip>
+#include "../fxstream.h"
 
-void print_n_until_m(int n, int m) {
-	if (n <= m) {
-		std::cout << std::setw(3) << std::setfill('0') << n << '\n';
-		print_n_until_m(n + 1, m);
+std::ostream &print_integer_until(std::ostream &s, int n, int m) {
+	if (n > m) {
+		return s;
+	}
+	else {
+		print_integer(s, n);
+		return print_integer_until(s, n + 1, m);
 	}
 }
 
 int main() {
-	print_n_until_m(0, 100);
+	print_integer_until(std::cout, 0, 100);
 	std::cout << std::flush;
 	return 0;
 }
