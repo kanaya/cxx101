@@ -1,28 +1,36 @@
-// C++14
-
-#include <iostream>
-#include <iomanip>
 #include <memory>
+#include "print_int.h"
 
 template <typename T> struct linklist {
 	T value;
 	std::shared_ptr<linklist> next;
 };
 
-template <typename T> auto back(std::shared_ptr<linklist<T>> s) {
-	if (s == nullptr || s->next == nullptr) {
+template <typename T>
+std::ostream &print_all(std::ostream &s, std::shared_ptr<linklist<T>> p) {
+	if (p == nullptr) {
 		return s;
 	}
 	else {
-		return back(s->next);
+		print_int(s, p->value);
+		return print_all(s, p->next);
 	}
 }
 
-template <typename T> auto append(std::shared_ptr<linklist<T>> s, T v) {
-	if (s == nullptr) {
-		s = std::make_shared<linklist<T>>();
-		s->value = v;
-		s->next = nullptr;
+template <typename T> auto back(std::shared_ptr<linklist<T>> p) {
+	if (p == nullptr || p->next == nullptr) {
+		return p;
+	}
+	else {
+		return back(p->next);
+	}
+}
+
+template <typename T> auto append(std::shared_ptr<linklist<T>> p, T v) {
+	if (p == nullptr) {
+		p = std::make_shared<linklist<T>>();
+		p->value = v;
+		p->next = nullptr;
 	}
 	else {
 		auto a = std::make_shared<linklist<T>>();
@@ -33,14 +41,7 @@ template <typename T> auto append(std::shared_ptr<linklist<T>> s, T v) {
 			b->next = a;
 		}
 	}
-	return s;
-}
-
-template <typename T> void print_all(std::shared_ptr<linklist<T>> s) {
-	if (s != nullptr) {
-		std::cout << std::setw(3) << std::setfill('0') << s->value << '\n';
-		print_all(s->next);
-	}
+	return p;
 }
 
 int main() {
@@ -48,7 +49,7 @@ int main() {
 	for (int i = 0; i <= 100; ++i) {
 		list = append(list, i);
 	}
-	print_all(list);
+	print_all(std::cout, list);
 	std::cout << std::flush;
 	return 0;
 }

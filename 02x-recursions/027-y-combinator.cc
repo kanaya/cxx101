@@ -1,7 +1,4 @@
-// C++14
-
-#include <iostream>
-#include <iomanip>
+#inculde "print_int.h"
 
 int main() {
 	auto Y = [](auto f) {
@@ -9,13 +6,16 @@ int main() {
 			return f(f, args...);
 		};
 	};
-	auto print = Y([](auto f, int i, int n) -> void {
-		if (i <= n) {
-			std::cout << std::setw(3) << std::setfill('0') << i << '\n';
-			f(f, i + 1, n);
+	auto print = Y([](auto f, std::ostream &s, int i, int n) -> void {
+		if (i > n) {
+			return;
+		} 
+		else {
+			print_integer(s, i);
+			f(f, s, i + 1, n);
 		}			
 	});
-	print(1, 100);
+	print(std::cout, 1, 100);
 	std::cout << std::flush;
 	return 0;
 }

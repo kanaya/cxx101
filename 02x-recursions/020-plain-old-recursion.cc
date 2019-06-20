@@ -1,6 +1,7 @@
-#include "../fxstream.h"
+#include "print_int.h"
 
-std::ostream &print_integer_until(std::ostream &s, int n, int m) {
+template <typename T>
+std::ostream &print_integer_until(std::ostream &s, T n, T m) {
 	if (n > m) {
 		return s;
 	}

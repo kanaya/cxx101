@@ -1,20 +1,24 @@
-#include <iostream>
-#include <iomanip>
+#include "print_int.h"
 
-void print_n_until_m(const int *n, const int *m) {
-	if (n != m) {
-		std::cout << std::setw(3) << std::setfill('0') << *n << '\n';
-		print_n_until_m(++n, m);
+template <typename T>
+std::ostream &print_integer_until(std::ostream &s, const T *n, const T *m) {
+	if (n == m) {
+		return s;		
+	}
+	else {
+		print_integer(s, *n);
+		return print_n_until_m(s, ++n, m);
 	}
 }
 
 int main() {
-	int n[101];
+	constexpr std::size_t N = 101;
+	int a[N];
 
-	for (int i = 0; i <= 100; ++i) {
-		n[i] = i;
+	for (std::size_t i = 0; i < N; ++i) {
+		a[i] = static_cast<int>(i);
 	}
-	print_n_until_m(&n[0], &n[101]);
+	print_integer_until(std::cout, &a[0], &a[N]);
 	std::cout << std::flush;
 	return 0;
 }
